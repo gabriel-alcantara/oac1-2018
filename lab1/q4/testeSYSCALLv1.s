@@ -16,23 +16,30 @@ msg6: .string "Tempo do Sistema:"
 buffer: .string "                                "
 
 .text	
-	M_SetEcall(syscallException)	# Macro de SetEcall
-				
+	M_SetEcall(exceptionHandling)	# Macro de SetEcall			
 	jal CLS
+	
+	M_SetEcall(exceptionHandling)	# Macro de SetEcall
 	jal PRINTSTR1
+	
+	M_SetEcall(exceptionHandling)
 	jal INPUTSTR
-	jal INPUTINT
-	jal INPUTFP
-	jal RAND
-	jal TIME
-	jal TOCAR
-	jal SLEEP
+	
+	#M_SetEcall(exceptionHandling)
+	#jal INPUTINT
+	
+	#jal INPUTFP
+	#jal RAND
+	#jal TIME
+	#jal TOCAR
+	#jal SLEEP
 
 	#M_Exit
 	
 			
 # CLS Clear Screen
-CLS:	li a0,0x07
+CLS:	
+	li a0,0x07
 	li a7,148
 	ecall
 	ret

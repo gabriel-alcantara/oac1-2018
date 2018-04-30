@@ -166,18 +166,18 @@ eventQueueEndPtr:       .word 0x90000E00
 #	eret
 	
 # inicio do exception handler
-#exceptionHandling:  addi    $sp, $sp, -8 # aloca espaco 
-#    sw      $at, 0($sp)			# salva $at
-#    sw      $ra, 4($sp)			# salva $ra
+exceptionHandling:  addi    sp, sp, -8 # aloca espaco 
+     sw      tp, 0(sp)			# salva $at
+     sw      ra, 4(sp)			# salva $ra
 
-#    addi    $k0, $zero, 32              # default syscall exception=8*4
-#    mfc0    $k0, $13                    # nao esta implementada no pipeline, ent�o usa o default 32
-#    nop                                 # nao retirar!
-#    andi    $k0, $k0, 0x007C		# mascarar 0000000001111100
-#    srl     $k0, $k0, 2			# retira os 2 bits iniciais
+     #addi    k0, zero, 32              # default syscall exception=8*4
+     #mfc0    k0, 13                    # nao esta implementada no pipeline, ent�o usa o default 32
+     nop                                 # nao retirar!
+     #andi    $k0, $k0, 0x007C		# mascarar 0000000001111100
+     #srl     $k0, $k0, 2			# retira os 2 bits iniciais
 
-#    addi    $k1, $zero, 8               # excecao de syscall
-#    beq     $k1, $k0, syscallException
+     #addi    $k1, $zero, 8               # excecao de syscall
+     beq     zero, zero, syscallException
 
 #    addi    $k1, $zero, 0               # interrupcoes
 #    beq     $k1, $k0, interruptException
@@ -191,14 +191,15 @@ eventQueueEndPtr:       .word 0x90000E00
 #    addi    $k1, $zero, 15              # excecao de ponto flutuante
 #    beq     $k1, $k0, FPALUException
 	
-#endException: 	lw    	$ra, 4($sp)		# recupera $ra
-#    		lw      $at, 0($sp)		# recupera $at
-#    		addi    $sp, $sp, 8		# libera espaco
+endException: 	lw    	ra, 4(sp)		# recupera $ra
+    		lw      tp, 0(sp)		# recupera $at
+    		addi    sp, sp, 8		# libera espaco
 
 #    		mfc0    $k0, $14                # le EPC     //NOTE: nao esta implementada no pipe
 #    		addi    $k0, $k0, 4		# EPC+4
 #    		mtc0    $k0, $14                # move para EPC     // nao esta implementada no pipeline
 #    		eret                            # Retorna ao EPC - fim exception handler
+		jr ra
 #    		nop
 
 #ALUOverflowException:   j endException  # escolhi nao fazer nada, ja que ate hoje nunca vi um SO tratar esse tipo de excecao...  by Matheus Pimenta
@@ -651,7 +652,7 @@ endSyscall:	lw	x1, 0(sp)  # recupera QUASE todos os registradores na pilha
     
     addi    sp, sp, 264
     # LOOOOOOOOL
-    #j endException
+    j endException
 
 
 goToExit:   	DE2(goToExitDE2)	# se for a DE2
