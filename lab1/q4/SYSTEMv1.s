@@ -563,6 +563,20 @@ syscallException:     addi    sp, sp, -264              # aloca memoria na pilha
     addi    t0, zero, 133             # syscall 33 = MIDI out synchronous
     beq     t0, a7, goToMidiOutSync
 
+    
+    # ***Obs: eu tirei essa funcao pra testar logo
+    #addi    t0, zero, 49              # syscall 49 = SD Card read
+    #beq     t0, a7, goToSDread
+    #addi    t0, zero, 149              # syscall 49 = SD Card read
+    #beq     t0, a7, goToSDread
+
+    addi    t0, zero, 48              # syscall 48 = CLS
+    beq     t0, a7, goToCLS
+    addi    t0, zero, 148              # syscall 48 = CLS
+    beq     t0, a7, goToCLS
+    
+    addi    t0, zero, 150             # syscall 150 = pop event
+    beq     t0, a7, goToPopEvent
 
 endSyscall:	lw	x1, 0(sp)  # recupera QUASE todos os registradores na pilha
 #   lw	    $2,   4($sp)	# $v0 retorno de valor
