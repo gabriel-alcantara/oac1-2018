@@ -655,7 +655,7 @@ endSyscall:	lw	x1, 0(sp)  # recupera QUASE todos os registradores na pilha
 
 
 goToExit:   	DE2(goToExitDE2)	# se for a DE2
-  		li 	a0, 10		# chama o syscal normal do Mars
+  		li 	a7, 10		# chama o syscal normal do Mars
   		ecall			# exit syscall
   		
 goToExitDE2:	j       goToExitDE2     ########### syscall 10 ou 110
@@ -874,8 +874,8 @@ printChar:
     
 NAOIMPRIMIVEL:     li      a0, 32		# Imprime espaco
 	
-IMPRIMIVEL:	li s0, NUMCOLUNAS		# Num colunas 320
-    	mul     t4, s0, a2			# multiplica $a2x320 e $t4 = coordenada y
+IMPRIMIVEL:	li tp, NUMCOLUNAS		# Num colunas 320
+    	mul     t4, tp, a2			# multiplica $a2x320 e $t4 = coordenada y
     	add     t4, t4, a1               	# t4 = 320*y + x
     	addi    t4, t4, 7                 	# t4 = 320*y + (x+7)
     	# ***obs: eu tirei o la, e coloquei li na instrucao abaixo.
