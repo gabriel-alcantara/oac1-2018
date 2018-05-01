@@ -17,24 +17,82 @@ buffer: .string "                                "
 
 .text	
 	M_SetEcall(exceptionHandling)	# Macro de SetEcall			
-	jal CLS
+	jal CLS	
 	
 	M_SetEcall(exceptionHandling)	# Macro de SetEcall
 	jal PRINTSTR1
 	
-	M_SetEcall(exceptionHandling)
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
 	jal INPUTSTR
 	
-	#M_SetEcall(exceptionHandling)
-	#jal INPUTINT
+	M_SetEcall(exceptionHandling)	# Macro de SetEcall
+	jal READSTR
 	
-	#jal INPUTFP
-	#jal RAND
-	#jal TIME
-	#jal TOCAR
-	#jal SLEEP
+	M_SetEcall(exceptionHandling)	# Macro de SetEcall
+	jal PRINTSTR
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal INPUTINT
+	
+	#M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	#jal READINT
+	
+	#M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	#jal PRINTINT
+	
+	M_SetEcall(exceptionHandling)
+	jal INPUTFP
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal READFP
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal PRINTFP
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal RAND
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal SYSCALLRAND
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal PRINTRAND
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TIME
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal PRINTTIME1
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal PRINTTIME2
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TOCAR0
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TOCAR1
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TOCAR2
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TOCAR3
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal TOCAR4
+	
+	M_SetEcall(exceptionHandling)   # Macro de SetEcall
+	jal SLEEP
+	
+	#M_SetEcall(exceptionHandling)
+	#jal PRINTSLEEP
+	
+	j M_Exit
 
-	#M_Exit
+M_Exit:
+	li a7,10
+	ecall
 	
 			
 # CLS Clear Screen
@@ -53,7 +111,8 @@ PRINTSTR1: li a7,104
 	ecall
 	ret		
 	
-INPUTSTR: li a7,104
+INPUTSTR: 
+	li a7,104
 	la a0,msg2
 	li a1,0
 	li a2,24
@@ -61,12 +120,14 @@ INPUTSTR: li a7,104
 	ecall
 	
 # syscall read string
+READSTR:
 	li a7,108
 	la a0,buffer
 	li a1,32
 	ecall
-	
-# syscall print string	
+
+# syscall print string
+PRINTSTR:
 	li a7,104
 	la a0,buffer
 	li a1,144
@@ -84,6 +145,7 @@ INPUTINT: li a7,104
 	li a3,0xFF00
 	ecall
 
+READINT:
 	# syscall read int
 	li a7,105
 	ecall
@@ -113,10 +175,12 @@ INPUTFP: li t0,0
 	li a2,40
 	li a3,0xFF00
 	ecall
-	
+
+READFP:	
 	li a7,106
 	ecall
-	
+
+PRINTFP:
 	# syscall print float
 	li a7,102
 	li a1,144
@@ -127,28 +191,28 @@ INPUTFP: li t0,0
 FORAFP:	ret
 	
 	# Contatos imediatos do terceiro grau
-TOCAR:	li a0,62
+TOCAR0:	li a0,62
 	li a1,500
 	li a2,16
 	li a3,127
 	li a7,133
 	ecall
 	
-	li a0,64
+TOCAR1:	li a0,64
 	li a1,500
 	li a2,16
 	li a3,127
 	li a7,133
 	ecall
 	
-	li a0,61
+TOCAR2:	li a0,61
 	li a1,500
 	li a2,16
 	li a3,127
 	li a7,133
 	ecall
 	
-	li a0,50
+TOCAR3:	li a0,50
 	li a1,500
 	li a2,16
 	li a3,127
@@ -156,7 +220,7 @@ TOCAR:	li a0,62
 	ecall
 	
 	
-	li a0,55
+TOCAR4:	li a0,55
 	li a1,800
 	li a2,16
 	li a3,127
@@ -175,9 +239,11 @@ RAND:	li a7,104
 	ecall
 
 	# syscall Rand
+SYSCALLRAND:
 	li a7,141
 	ecall
-	
+
+PRINTRAND:	
 	# print int em hex
 	li a7,134  #134
 	li a1,148
@@ -197,12 +263,14 @@ TIME:	li a7,104
 	li a3,0xFF00
 	ecall
 
+SYSCALLTIME:
 	li a7,130
 	ecall
 	
 	mv t0,a0
 	mv t1,a1
-	
+
+PRINTTIME1:	
 	#print int
 	mv a0,t0
 	li a7,101
@@ -210,7 +278,8 @@ TIME:	li a7,104
 	li a2,56
 	li a3,0xFF00
 	ecall
-	
+
+PRINTTIME2:	
 	#print int
 	mv a0,t1
 	li a7,101
@@ -226,7 +295,8 @@ SLEEP:	li t0,5
 LOOPHMS:li a0,1000   # 1 segundo
 	li a7,132
 	ecall
-	
+
+PRINTSLEEP:		
 	addi t0,t0,-1
 	#print seg
 	mv a0,t0

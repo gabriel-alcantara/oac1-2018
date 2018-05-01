@@ -200,6 +200,7 @@ endException: 	lw    	ra, 4(sp)		# recupera $ra
 #    		mtc0    $k0, $14                # move para EPC     // nao esta implementada no pipeline
 #    		eret                            # Retorna ao EPC - fim exception handler
 		jr ra
+		nop
 #    		nop
 
 #ALUOverflowException:   j endException  # escolhi nao fazer nada, ja que ate hoje nunca vi um SO tratar esse tipo de excecao...  by Matheus Pimenta
@@ -1052,6 +1053,7 @@ readInt: 	addi 	sp,sp,-4		# reserva espaco na pilha
 	
 loopReadInt: 	beq	s3, zero, fimReadInt	# Leu todos os digitos
 	lbu 	t1, (t0)			# le um digito
+	#lw t1, (t0)			# le um digito
 	li, t5, 0x2d
 	beq 	t1, t5, ehnegReadInt		# = '-'
 	li, t5, 0x2b
