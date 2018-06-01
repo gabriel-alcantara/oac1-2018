@@ -7,6 +7,8 @@ NUM10: .word 10
 NUM2:  .word 2
 NUMHex: .word 0XFFFFFFFF
 NUMHex2: .word 0X00001000
+Byte:   .byte  'a'
+StoreB: .byte
 .text
 BLOCO1:
 #BLOCO 1
@@ -140,7 +142,7 @@ bne t3,t2,ErrorB18 # if t3 != 10 : pc=ErrorB18 ? pc=pc+4
 BLOCO19:
 #bloco 19
 # test  instruction: auipc,
-auipc t1,0X0000000a # fazer auipc depois
+auipc t1,0X0000000a # fazer auipc depois, uipc nao esta sendo testado ainda
 lw t2,NUM20
 lw t3,NUM10
 BLOCO20:
@@ -164,15 +166,40 @@ bge t1,t2,ErrorB22 # t1>= t2 : pc=Error22 ? pc=pc+4
 bgeu t1,t2,ErrorB22 # |t1 >= t2| : pc=Error22 ?´pc=pc+4
 BLOCO23:
 #bloco 23
-#test instruction:
+#test instruction: lw, blt,btlu
 lw t1,NUM10
 lw t2,NUM20
 blt t2,t1,ErrorB23 # t2 < t1 : pc=Error23 ? pc=pc+4
 bltu t2,t1,ErrorB23 # t2 < t1 : pc=Error23 ? pc=pc+4
 BLOCO24:
 #bloco24
+# test instruction: new: jal,jalr
+jal t1,Jump
+jal zero,BLOCO25
+Jump: jalr zero,t1,0
+jal zero,ErrorB24
+BLOCO25:
+#bloco 25
+#test instruction: addd, bne; new: lb,lbu
+lb t1,Byte # t1 := 'a'
+addi t2,zero,97 #'a' == 97 na tabela ASCII
+bne t1,t2,ErrorB25
+lbu t1,Byte # t1 := 'a'
+#bne t1,t2,ErrorB25
+BLOCO26:
+#bloco 26
+#test instruction: lw ,bne; new: lh, lhu
+lw t2,NUM10
+lh t1,NUM10
+bne t1,t2,ErrorB26
+lhu t1,NUM10
+bne t1,t2,ErrorB26
+BLOCO27:
+#bloco 27
 # test instruction:
-
+lb t2,Byte # t2 := 'a'
+lb t1,StoreB
+sb t2, 0(t2)
 ErrorB1:
 ErrorB2:
 ErrorB3:
@@ -196,3 +223,6 @@ ErrorB20:
 ErrorB21:
 ErrorB22:
 ErrorB23:
+ErrorB24:
+ErrorB25:
+ErrorB26:
