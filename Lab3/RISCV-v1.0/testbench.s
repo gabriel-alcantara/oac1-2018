@@ -196,10 +196,14 @@ lhu t1,NUM10
 bne t1,t2,ErrorB26
 BLOCO27:
 #bloco 27
-# test instruction:
+# test instruction: lb,sb
 lb t2,Byte # t2 := 'a'
 lb t1,StoreB
 sb t2, 0(t2)
+BLOCO28:
+#bloco 28
+# test instruction:
+
 ErrorB1:
 ErrorB2:
 ErrorB3:
