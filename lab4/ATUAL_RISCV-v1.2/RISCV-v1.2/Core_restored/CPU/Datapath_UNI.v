@@ -1,0 +1,225 @@
+`ifndef PARAM
+	`include "../Parametros.v"
+`endif
+
+
+/*
+ * Caminho de dados processador RARS Uniciclo
+ *
+ */
+
+module Datapath_UNI (
+    // Inputs e clocks
+    input  wire        iCLK, iCLK50, iRST,
+    input  wire [31:0] iInitialPC,
+
+    // Para monitoramento
+    output wire [31:0] /*wPC,*/ woInstr,
+    output wire [31:0] wRegDisp,
+    input  wire [4:0]  wRegDispSelect,
+    output wire [31:0] wDebug,	 
+    input  wire [4:0]  wVGASelect,
+    output wire [31:0] wVGARead,
+    output wire        wCRegWrite,
+    output logic [1:0]  wCRegDst,wCALUOp,wCOrigALU,
+    output logic [2:0]  wCOrigPC,
+    output logic [2:0]  wCMem2Reg,
+	 output wire [31:0] wBRReadA,
+	 output wire [31:0] wBRReadB,
+	 output wire [31:0] wBRWrite,
+	 output wire [31:0] wULA,	 
+
+
+    //  Barramento de Dados
+    output wire        DwReadEnable, DwWriteEnable,
+    output wire [3:0]  DwByteEnable,
+    output wire [31:0] DwAddress, DwWriteData,
+    input  wire [31:0] DwReadData,
+
+    // Barramento de Instrucoes
+    output wire        IwReadEnable, IwWriteEnable,
+    output wire [3:0]  IwByteEnable,
+    output wire [31:0] IwAddress, IwWriteData,
+    input  wire [31:0] IwReadData
+
+);
+
+
+
+/* ****************************************************** */
+/* Definicao dos fios e registradores							 */
+
+reg  [31:0] PC;
+
+wire [31:0] wPC, wPC4;
+
+
+
+/* ****************************************************** */
+/* Inicializacao dos registradores		  						 */
+
+initial
+	begin
+		PC         <= BEGINNING_TEXT;
+	end
+
+
+/* ****************************************************** */
+/* Definicao das estruturas assign		  						 */
+
+
+assign wPC			= PC;
+assign wPC4       = wPC + 32'h4;
+
+
+/* ****************************************************** */
+/* Instanciacao das estruturas 	 		  						 */
+
+
+/* Barramento da Memoria de Instrucoes */
+assign    IwReadEnable      = ON;
+assign    IwWriteEnable     = OFF;
+assign    IwByteEnable      = 4'b1111;
+assign    IwAddress         = wPC;
+assign    IwWriteData       = ZERO;
+assign    wInstr            = IwReadData;
+
+
+/* Banco de Registradores */
+Registers RegsUNI (
+    .iCLK(iCLK),
+    .iCLR(iRST),
+    .iReadRegister1(wRs1),
+    .iReadRegister2(wRs2),
+    .iWriteRegister(wRd),
+    .iWriteData(wDataReg),
+    .iRegWrite(wCRegWrite),
+    .oReadData1(wRead1),
+    .oReadData2(wRead2),
+    .iRegDispSelect(wRegDispSelect),    // seleção para display
+    .oRegDisp(wRegDisp),                // Reg display
+    .iVGASelect(wVGASelect),            // para mostrar Regs na tela
+    .oVGARead(wVGARead)                 // para mostrar Regs na tela
+	);
+
+
+/* ALU CTRL */
+ALUControl ALUControlunit (
+    .iFunct3(wFunct3),
+	 .iFunct7(wFunct7),
+    .iOpcode(wOpcode),
+    .iALUOp(wCALUOp),
+    .oControlSignal(wALUControl)
+	);
+
+/* ALU */
+ALU ALUunit(
+    .iCLK(iCLK),
+    .iRST(iRST),
+    .iControlSignal(wALUControl),
+    .iA(wRead1),
+    .iB(wOrigALU),
+    .oALUresult(wALUresult),
+    .oZero(wZero)
+	);
+
+
+	
+MemStore MemStore0 (
+    .iAlignment(wALUresult[1:0]),
+    .iWriteTypeF(STORE_TYPE_DUMMY),
+    .iOpcode(wOpcode),
+    .iData(wRead2),
+    .oData(wMemDataWrite),
+    .oByteEnable(wMemEnable),
+    .oException()
+	);
+
+/* Barramento da memoria de dados */
+assign DwReadEnable     = wCMemRead;
+assign DwWriteEnable    = wCMemWrite;
+assign DwByteEnable     = wMemEnable;
+assign DwWriteData      = wMemDataWrite;
+assign wReadData        = DwReadData;
+assign DwAddress        = wALUresult;
+
+MemLoad MemLoad0 (
+    .iAlignment(wALUresult[1:0]),
+    .iLoadTypeF(LOAD_TYPE_DUMMY),
+    .iOpcode(wOpcode),
+    .iData(wReadData),
+    .oData(wMemAccess),
+    .oException()
+	);
+
+	
+	
+/* Unidade de Controle */
+Control_UNI CtrUNI (
+    .iCLK(iCLK),
+    .iOp(wOpcode),
+    .iFunct3(wFunct3),
+	 .iFunct7(wFunct7),
+    .oOrigALU(wCOrigALU),
+    .oMemparaReg(wCMem2Reg),
+    .oEscreveReg(wCRegWrite),
+    .oLeMem(wCMemRead),
+    .oEscreveMem(wCMemWrite),
+    .oOpALU(wCALUOp),
+    .oOrigPC(wCOrigPC),
+	);
+
+
+
+/* ****************************************************** */
+/* multiplexadores							  						 */
+
+
+always @(*)
+    case(wCOrigALU)
+        2'b00:      wOrigALU <= wRead2;
+        2'b01:      wOrigALU <= wImmediate;
+        2'b10:      wOrigALU <= {wImmediate[30:0],1'b0};
+		  default:	  wOrigALU <= 5'bx;
+    endcase
+
+
+
+always @(*)
+begin
+  case(wCOrigPC)
+		3'b000:     wiPC <= wPC4;
+		3'b001:     wiPC <= wComp ? wBranchPC: wPC4;
+		3'b010:     wiPC <= wJalAddr;
+		3'b011:     wiPC <= (wRead1+wImmediate) & ~(32'h1);
+		default:		wiPC <= wPC4;
+  endcase
+end
+
+
+always @(*)
+    case(wCMem2Reg)
+        3'b000:     wDataReg <= wALUresult;
+        3'b010:     wDataReg <= wPC;
+        3'b110:     wDataReg <= wMemAccess;
+        default:    wDataReg <= 32'b0;
+    endcase
+
+
+
+
+
+/* ****************************************************** */
+/* A cada ciclo de clock					  						 */
+
+
+always @(posedge iCLK or posedge iRST)
+begin
+    if(iRST)
+			PC    <= iInitialPC;
+    else
+			PC 	<= wiPC;
+end
+
+
+endmodule

@@ -1,0 +1,38 @@
+DEPTH = 4096;
+WIDTH = 32;
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+CONTENT
+BEGIN
+00000000 : 0fc10497;   % 11: 	la s1,NUM		# s1 = Endereco NUM %
+00000001 : 00048493;   % 11:  %
+00000002 : 0004a403;   % 12: 	lw s0,0(s1)		# s0 = numero 5 %
+00000003 : 0084a423;   % 13: 	sw s0,8(s1)		# grava número em NUM+8 na memória %
+00000004 : 0084a403;   % 14: 	lw s0,8(s1)		# Le o numero gravado %
+00000005 : 00500493;   % 15: 	li s1,5			# define s1=5 %
+00000006 : 02941e63;   % 16: 	bne s0,s1,ERRO  	# caso o numero lido seja diferente de 5 é porque deu ruim em algum lugar %
+00000007 : 0fc10497;   % 17: 	la s1,F1 %
+00000008 : fe848493;   % 17:  %
+00000009 : 0004a407;   % 18: 	flw fs0,0(s1)		# carrega fs0=3.5 %
+0000000a : e0040453;   % 19: 	fmv.x.s s0,fs0		# passa para s0 %
+0000000b : 406004b7;   % 20: 	lui s1,0x40600		#  define s1=3.5 0x40600000 %
+0000000c : 02941863;   % 21: 	bne s0,s1,SEMFPU	# indica que nao tem FPU %
+0000000d : 208404d3;   % 22: 	fmv.s fs1,fs0		# copia para fs1=3.5 %
+0000000e : 00947453;   % 23: 	fadd.s fs0,fs0,fs1	# fs0=7.0 %
+0000000f : 10847453;   % 24: 	fmul.s fs0,fs0,fs0	# fs0=49.0 %
+00000010 : 58047453;   % 25: 	fsqrt.s fs0,fs0		# fs0=7.0 %
+00000011 : 0094f4d3;   % 26: 	fadd.s fs1,fs1,fs1	# fs1=7.0 %
+00000012 : a09424d3;   % 27: 	feq.s s1,fs0,fs1	# compara  7.0==7.0? %
+00000013 : c0047453;   % 28: 	fcvt.w.s s0,fs0		# converte para inteiro %
+00000014 : 00049863;   % 29: 	bne s1,zero,SEMFPU	# se for verdadeiro PULA %
+00000015 : 0000f437;   % 30: ERRO:	li s0,0xEEEE		# sinaliza que houve EEEErro %
+00000016 : eee40413;   % 30:  %
+00000017 : 0000006f;   % 31: FIM:	jal zero,FIM		# trava o processador %
+00000018 : 00700413;   % 32: SEMFPU:	li s0,7			 %
+00000019 : 958c94b7;   % 33: 	li s1,0x958c96d5	# s1 %
+0000001a : 6d548493;   % 33:  %
+0000001b : 008000ef;   % 34: 	jal ra,PROC		# testa jal %
+0000001c : fedff06f;   % 35: 	jal zero,FIM		# resultado esperado FocaFofa %
+0000001d : 0284c433;   % 36: PROC:	div s0,s1,s0		# testa div %
+0000001e : 00008067;   % 37: 	jalr zero,ra,0		# testa jalr %
+END;
