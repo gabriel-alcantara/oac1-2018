@@ -40,12 +40,16 @@ begin
                     oControlSignal  = OPSRL;
                 FUNSRA:
                     oControlSignal  = OPSRA;
-                FUNMULT:
-                    oControlSignal  = OPMULT;
+                FUNMUL:
+                    oControlSignal  = OPMUL;
+					 FUNMULH:
+							oControlSignal = OPMULH;
+					 FUNMULHSU:
+					      oControlSignal = OPMULHSU;
                 FUNDIV:
                     oControlSignal  = OPDIV;
-                FUNMULTU:
-                    oControlSignal  = OPMULTU;
+                FUNMULHU:
+                    oControlSignal  = OPMULHU;
                 FUNDIVU:
                     oControlSignal  = OPDIVU;
                 FUNADD:
@@ -63,11 +67,11 @@ begin
                 FUNSLTU:
                     oControlSignal  = OPSLTU;
                 FUNSRL:
-                    oControlSignal  = OPSRLV;
+                    oControlSignal  = OPSRL;
                 FUNSLL:
-                    oControlSignal  = OPSLLV;
+                    oControlSignal  = OPSLL;
                 FUNSRA:
-                    oControlSignal  = OPSRAV;
+                    oControlSignal  = OPSRA;
                 default:
                     oControlSignal  = 5'b00000;
             endcase

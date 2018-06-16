@@ -31,7 +31,7 @@ parameter
 	 OPREMU 	= 5'b10100,
 
 /* Campo FUNCT */
-	FUNSLL = 10'b0000000001,
+	 FUNSLL = 10'b0000000001,
     FUNSRL = 10'b0000000101,
     FUNSRA = 10'b0100000101,
     FUNMUL = 10'b0000001000,
@@ -47,9 +47,6 @@ parameter
     FUNXOR = 10'b0000000100,
     FUNSLT = 10'b0000000100,
     FUNSLTU= 10'b0000000101,
-    FUNSLR = 10'b0000000101,
-    FUNSLL = 10'b0000000001,
-    FUNSRA = 10'b0100000101,
     	
 /*Campo FUNCT3*/      // para uso ALUcontrol funcoes que so tem funct3
    FUNADDI = 3'b000,
@@ -58,20 +55,26 @@ parameter
    FUNANDI= 3'b111,
    FUNORI = 3'b110,
    FUNXORI= 3'b100,
-	
+   FUNBEQ = 3'b000,
+   FUNBNE = 3'b001,
+   FUNBLT = 3'b100,
+   FUNBLTU= 3'b110,
+   FUNBGE = 3'b101,
+   FUNBGEU= 3'b111,
+   FUNJALR= 3'b000, 
 	
 	
 
 /* Campo OPCODE */
-	OPMUL   = 7'b0110011,
+	OPCMUL   = 7'b0110011,
 	// obs: mulhu no riscV
-	OPMULHU  = 7'b0110011,
+	OPCMULHU  = 7'b0110011,
 	// obs: no riscV eh a funcao srl
-	OPSRLV   = 7'b0110011,
+	OPCSRLV   = 7'b0110011,
 	// obs: eh a funcao sll
-	OPSLLV   = 7'b0110011,
+	OPCSLLV   = 7'b0110011,
 	// obs: funcao sra no riscV
-	OPSRAV   = 7'b0110011,
+	OPCSRA   = 7'b0110011,
 	OPCADDI  = 7'b0010011,
 	// obs: vou deixar o opocode do addi aqui, pois n achei o opcode de ADDIU no riscV
 	OPCADDIU = 7'b0010011,

@@ -41,13 +41,21 @@ output wire [3:0] DwByteEnable
 	
 /* ****************************************************** */
 /* Definicao dos fios e registradores							 */
-
-
-// Parte que estou inserindo para o caminho de dados.
-input wire [31:0] wMemAddress, wImmediate, wPCMux,  wJalAddress, wMemorALU;
-
-reg [31:0] PC;
+reg [31:0] PC,PCBack;
 reg [31:0] A, B, MDR, IR, ALUOut;
+
+wire [6:0]wOPcode;
+wire [5:0] wRS1,wRS2,wRD
+wire IRwrite,MemRead,RegWrite,IouD,MemWrite,PCWrite,PcWriteCond,OrigPC,OrigBULA,PCWriteBEQ, PCWriteBNE,
+wALUZero,wALUOverflow;
+wire [1:0] ALUOp;
+wire [4:0] wALUControlSignal;
+wire [31:0] wALUMuxA, wALUMuxB, wALUResult, wImmediateGerador, wImmediateDescMux,wImmediateMux,
+				wReadData1, wReadData2, wRegWriteData, wMemorALU, wMemWriteData, 
+				wMemReadData, wMemAddress, wPCMux, wJalAddress;
+wire [9:0] wControlULA;
+
+
 
 
 
@@ -70,7 +78,32 @@ end
  
 /* ****************************************************** */
 /* Definicao das estruturas assign		  						 */
+assign wBRReadA		= wReadData1;
+assign wBRReadB		= wReadData2;
+assign wBRWrite		= wTreatedToRegister;
+assign wULA				= wALUResult;
+assign wOpCode  = IR[6:0];
+assign wRS1     = IR[19:15];
+assign wRS2     = IR[24:20];
+assign wRD      = IR[11:7];
+assign wControlULA = {IR[31:25],IR[14:12]};
+assign wImmediateGerador = IR[31:0]
+assign wImmediateDescMux = {IR[30:0],1b'0}
+assign wImmediateMux = wImmediateGerador[31:0]
 
+/* Output wires */
+assign oPC			= PC;
+assign oALUOp		= ALUOp;
+assign oPCSource	= PCSource;
+assign oIRWrite	= IRWrite;
+assign oIorD		= IorD;
+assign oPCWrite	= PCWrite;
+assign oALUSrcA	= ALUSrcA;
+assign oRegWrite	= RegWrite;
+assign oRegDst		= RegDst;
+assign oInstr 		= IR;
+assign oALUSrcB	= ALUSrcB;
+assign oALUSrcA	= ALUSrcA;
 
 
 
