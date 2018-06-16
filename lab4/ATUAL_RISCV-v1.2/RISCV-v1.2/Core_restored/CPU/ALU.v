@@ -4,6 +4,7 @@
 
  
 module ALU (
+	input iCLK, iRST,
 	input wire 		[4:0] 	iControl,
 	input signed 	[31:0] 	iA, 
 	input signed 	[31:0] 	iB,

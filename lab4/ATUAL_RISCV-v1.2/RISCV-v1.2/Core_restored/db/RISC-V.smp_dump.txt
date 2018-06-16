@@ -1,0 +1,6 @@
+
+State Machine - |TopDE|CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI|pr_state
+Name pr_state.DECODE pr_state.ERRO pr_state.FETCH 
+pr_state.FETCH 0 0 0 
+pr_state.DECODE 1 0 1 
+pr_state.ERRO 0 1 1 

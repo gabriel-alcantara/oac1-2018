@@ -127,7 +127,6 @@ Datapath_MULTI Processor (
     .oPCWrite(PCWrite),
     .oALUSrcA(ALUSrcA),
     .oRegWrite(RegWrite),
-    .oRegDst(RegDst),
 	 .wBRReadA(wBRReadA),
 	 .wBRReadB(wBRReadB),
 	 .wBRWrite(wBRWrite),

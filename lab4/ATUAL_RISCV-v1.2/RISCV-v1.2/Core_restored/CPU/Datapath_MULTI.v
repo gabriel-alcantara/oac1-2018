@@ -159,9 +159,9 @@ ALU ALU0 (
 	.iRST(iRST),
 	.iA(wALUMuxA),
 	.iB(wALUMuxB),
-	.iControlSignal(wALUControlSignal),
+	.iControl(wALUControlSignal),
 	.oZero(wALUZero),
-	.oALUresult(wALUResult),
+	.oResult(wALUResult),
 	);
 
 /* Arithmetic Logic Unit control module */
