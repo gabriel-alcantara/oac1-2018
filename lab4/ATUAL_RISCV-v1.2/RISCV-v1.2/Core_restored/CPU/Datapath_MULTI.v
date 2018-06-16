@@ -45,12 +45,12 @@ reg [31:0] PC,PCBack;
 reg [31:0] A, B, MDR, IR, ALUOut;
 
 wire [6:0]wOPcode;
-wire [5:0] wRS1,wRS2,wRD
-wire IRwrite,MemRead,RegWrite,IouD,MemWrite,PCWrite,PcWriteCond,OrigPC,OrigBULA,PCWriteBEQ, PCWriteBNE,
-wALUZero,wALUOverflow;
+wire [5:0] wRS1,wRS2,wRD;
+wire IRwrite, MemRead, RegWrite, IouD,MemWrite,PCWrite,PcWriteCon, OrigPC,OrigBULA,PCWriteBEQ;
+wire PCWriteBNE, wALUZero,wALUOverflow;
 wire [1:0] ALUOp;
 wire [4:0] wALUControlSignal;
-wire [31:0] wALUMuxA, wALUMuxB, wALUResult, wImmediateGerador, wImmediateDescMux,wImmediateMux,
+wire [31:0] wALUMuxA, wALUMuxB, wALUResult, wImmediate,wImmediateMux,
 				wReadData1, wReadData2, wRegWriteData, wMemorALU, wMemWriteData, 
 				wMemReadData, wMemAddress, wPCMux, wJalAddress;
 wire [9:0] wControlULA;
@@ -87,9 +87,8 @@ assign wRS1     = IR[19:15];
 assign wRS2     = IR[24:20];
 assign wRD      = IR[11:7];
 assign wControlULA = {IR[31:25],IR[14:12]};
-assign wImmediateGerador = IR[31:0]
-assign wImmediateDescMux = {IR[30:0],1b'0}
-assign wImmediateMux = wImmediateGerador[31:0]
+assign wImmediate = IR[31:0];
+assign wImmediateMux = wImmediate[31:0];
 
 /* Output wires */
 assign oPC			= PC;
@@ -100,7 +99,6 @@ assign oIorD		= IorD;
 assign oPCWrite	= PCWrite;
 assign oALUSrcA	= ALUSrcA;
 assign oRegWrite	= RegWrite;
-assign oRegDst		= RegDst;
 assign oInstr 		= IR;
 assign oALUSrcB	= ALUSrcB;
 assign oALUSrcA	= ALUSrcA;
