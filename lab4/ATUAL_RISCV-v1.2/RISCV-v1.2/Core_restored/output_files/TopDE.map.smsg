@@ -1,3 +1,4 @@
+Warning (10268): Verilog HDL information at Datapath_MULTI.v(277): always construct contains both blocking and non-blocking assignments File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 277
 Warning (10273): Verilog HDL warning at Registers.v(52): extended using "x" or "z" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Registers.v Line: 52
 Warning (10273): Verilog HDL warning at Break_Interface.v(30): extended using "x" or "z" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Tempo/Break_Interface.v Line: 30
 Warning (10273): Verilog HDL warning at Break_Interface.v(32): extended using "x" or "z" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Tempo/Break_Interface.v Line: 32

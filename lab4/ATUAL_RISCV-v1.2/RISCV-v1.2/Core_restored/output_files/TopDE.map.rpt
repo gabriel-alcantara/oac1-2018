@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TopDE
-Sat Jun 16 13:03:07 2018
+Sat Jun 16 19:43:57 2018
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -65,13 +65,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Jun 16 13:03:07 2018       ;
+; Analysis & Synthesis Status     ; Successful - Sat Jun 16 19:43:56 2018       ;
 ; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; TopDE                                       ;
 ; Top-level Entity Name           ; TopDE                                       ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 419                                         ;
+; Total registers                 ; 452                                         ;
 ; Total pins                      ; 273                                         ;
 ; Total virtual pins              ; 339                                         ;
 ; Total block memory bits         ; 196,608                                     ;
@@ -253,16 +253,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------------------+
 ; Resource                                    ; Usage                    ;
 +---------------------------------------------+--------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 429                      ;
+; Estimate of Logic utilization (ALMs needed) ; 475                      ;
 ;                                             ;                          ;
-; Combinational ALUT usage for logic          ; 349                      ;
+; Combinational ALUT usage for logic          ; 442                      ;
 ;     -- 7 input functions                    ; 5                        ;
-;     -- 6 input functions                    ; 54                       ;
+;     -- 6 input functions                    ; 53                       ;
 ;     -- 5 input functions                    ; 66                       ;
-;     -- 4 input functions                    ; 34                       ;
-;     -- <=3 input functions                  ; 190                      ;
+;     -- 4 input functions                    ; 65                       ;
+;     -- <=3 input functions                  ; 253                      ;
 ;                                             ;                          ;
-; Dedicated logic registers                   ; 419                      ;
+; Dedicated logic registers                   ; 452                      ;
 ;                                             ;                          ;
 ; Virtual pins                                ; 339                      ;
 ; I/O pins                                    ; 273                      ;
@@ -276,8 +276,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                          ;
 ; Maximum fan-out node                        ; altera_internal_jtag~TDO ;
 ; Maximum fan-out                             ; 344                      ;
-; Total fan-out                               ; 4392                     ;
-; Average fan-out                             ; 2.41                     ;
+; Total fan-out                               ; 4772                     ;
+; Average fan-out                             ; 2.45                     ;
 +---------------------------------------------+--------------------------+
 
 
@@ -286,14 +286,14 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
 ; Compilation Hierarchy Node                                                                                                              ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                                                                                                                                                                                               ; Entity Name                       ; Library Name ;
 +-----------------------------------------------------------------------------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------+--------------+
-; |TopDE                                                                                                                                  ; 349 (1)             ; 419 (0)                   ; 196608            ; 0          ; 273  ; 339          ; |TopDE                                                                                                                                                                                                                                                                                                                                            ; TopDE                             ; work         ;
+; |TopDE                                                                                                                                  ; 442 (1)             ; 452 (0)                   ; 196608            ; 0          ; 273  ; 339          ; |TopDE                                                                                                                                                                                                                                                                                                                                            ; TopDE                             ; work         ;
 ;    |CLOCK_Interface:CLOCK0|                                                                                                             ; 105 (63)            ; 75 (42)                   ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CLOCK_Interface:CLOCK0                                                                                                                                                                                                                                                                                                                     ; CLOCK_Interface                   ; work         ;
 ;       |PLL_Main:PLL1|                                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CLOCK_Interface:CLOCK0|PLL_Main:PLL1                                                                                                                                                                                                                                                                                                       ; PLL_Main                          ; PLL_Main     ;
 ;          |PLL_Main_0002:pll_main_inst|                                                                                                  ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CLOCK_Interface:CLOCK0|PLL_Main:PLL1|PLL_Main_0002:pll_main_inst                                                                                                                                                                                                                                                                           ; PLL_Main_0002                     ; PLL_Main     ;
 ;             |altera_pll:altera_pll_i|                                                                                                   ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CLOCK_Interface:CLOCK0|PLL_Main:PLL1|PLL_Main_0002:pll_main_inst|altera_pll:altera_pll_i                                                                                                                                                                                                                                                   ; altera_pll                        ; work         ;
 ;       |mono:Timer10|                                                                                                                    ; 42 (42)             ; 33 (33)                   ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CLOCK_Interface:CLOCK0|mono:Timer10                                                                                                                                                                                                                                                                                                        ; mono                              ; work         ;
-;    |CPU:CPU0|                                                                                                                           ; 33 (0)              ; 63 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0                                                                                                                                                                                                                                                                                                                                   ; CPU                               ; work         ;
-;       |Datapath_MULTI:Processor|                                                                                                        ; 33 (1)              ; 63 (62)                   ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0|Datapath_MULTI:Processor                                                                                                                                                                                                                                                                                                          ; Datapath_MULTI                    ; work         ;
+;    |CPU:CPU0|                                                                                                                           ; 126 (0)             ; 96 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0                                                                                                                                                                                                                                                                                                                                   ; CPU                               ; work         ;
+;       |Datapath_MULTI:Processor|                                                                                                        ; 126 (94)            ; 96 (95)                   ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0|Datapath_MULTI:Processor                                                                                                                                                                                                                                                                                                          ; Datapath_MULTI                    ; work         ;
 ;          |ALU:ALU0|                                                                                                                     ; 30 (30)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0|Datapath_MULTI:Processor|ALU:ALU0                                                                                                                                                                                                                                                                                                 ; ALU                               ; work         ;
 ;          |Control_MULTI:CrlMULTI|                                                                                                       ; 1 (1)               ; 1 (1)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI                                                                                                                                                                                                                                                                                   ; Control_MULTI                     ; work         ;
 ;          |Registers:RegsMULTI|                                                                                                          ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopDE|CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI                                                                                                                                                                                                                                                                                      ; Registers                         ; work         ;
@@ -369,7 +369,7 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
 ; STOPWATCH_Interface:stopwatch0|reset_flag                                 ; Stuck at GND due to stuck port data_in                                               ;
 ; CPU:CPU0|Datapath_MULTI:Processor|A[0..31]                                ; Lost fanout                                                                          ;
-; CPU:CPU0|Datapath_MULTI:Processor|ALUOut[0..31]                           ; Lost fanout                                                                          ;
+; CPU:CPU0|Datapath_MULTI:Processor|ALUOut[1..7,9..15,17..23,25..31]        ; Lost fanout                                                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[0][0]     ; Stuck at GND due to stuck port clock_enable                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[31][31]   ; Stuck at GND due to stuck port clock_enable                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[31][30]   ; Stuck at GND due to stuck port clock_enable                                          ;
@@ -1394,9 +1394,10 @@ Encoding Type:  One-Hot
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[0][3]     ; Stuck at GND due to stuck port clock_enable                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[0][2]     ; Stuck at GND due to stuck port clock_enable                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI|registers[0][1]     ; Stuck at GND due to stuck port clock_enable                                          ;
+; CPU:CPU0|Datapath_MULTI:Processor|ALUOut[8,16,24]                         ; Lost fanout                                                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|B[0..31]                                ; Stuck at GND due to stuck port data_in                                               ;
-; CPU:CPU0|Datapath_MULTI:Processor|PC[0]                                   ; Merged with CPU:CPU0|Datapath_MULTI:Processor|PC[1]                                  ;
-; CPU:CPU0|Datapath_MULTI:Processor|PC[1]                                   ; Stuck at GND due to stuck port data_in                                               ;
+; CPU:CPU0|Datapath_MULTI:Processor|PC[1]                                   ; Merged with CPU:CPU0|Datapath_MULTI:Processor|PC[0]                                  ;
+; CPU:CPU0|Datapath_MULTI:Processor|PCBack[1]                               ; Merged with CPU:CPU0|Datapath_MULTI:Processor|PCBack[0]                              ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI|pr_state~6       ; Lost fanout                                                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI|pr_state~7       ; Lost fanout                                                                          ;
 ; CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI|pr_state~8       ; Lost fanout                                                                          ;
@@ -1406,7 +1407,7 @@ Encoding Type:  One-Hot
 ; STOPWATCH_Interface:stopwatch0|time_count[0..31]                          ; Lost fanout                                                                          ;
 ; STOPWATCH_Interface:stopwatch0|Stopwatch_divider_clk:divider|new_freq     ; Lost fanout                                                                          ;
 ; STOPWATCH_Interface:stopwatch0|Stopwatch_divider_clk:divider|count[0..15] ; Lost fanout                                                                          ;
-; Total Number of Removed Registers = 1178                                  ;                                                                                      ;
+; Total Number of Removed Registers = 1177                                  ;                                                                                      ;
 +---------------------------------------------------------------------------+--------------------------------------------------------------------------------------+
 
 
@@ -1504,12 +1505,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 419   ;
+; Total registers                              ; 452   ;
 ; Number of registers using Synchronous Clear  ; 73    ;
 ; Number of registers using Synchronous Load   ; 126   ;
-; Number of registers using Asynchronous Clear ; 179   ;
+; Number of registers using Asynchronous Clear ; 212   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 299   ;
+; Number of registers using Clock Enable       ; 300   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -1519,7 +1520,7 @@ Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 ; Inverted Register                                                                                                                                                                                                                                                                                                               ; Fan out ;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
-; CPU:CPU0|Datapath_MULTI:Processor|PC[22]                                                                                                                                                                                                                                                                                        ; 2       ;
+; CPU:CPU0|Datapath_MULTI:Processor|PC[22]                                                                                                                                                                                                                                                                                        ; 4       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[1] ; 3       ;
 ; sld_hub:auto_hub|alt_sld_fab_with_jtag_input:\instrumentation_fabric_with_node_gen:fabric_gen_new_way:with_jtag_input_gen:instrumentation_fabric|alt_sld_fab:instrumentation_fabric|alt_sld_fab_alt_sld_fab:alt_sld_fab|alt_sld_fab_alt_sld_fab_sldfabric:sldfabric|sld_jtag_hub:\jtag_hub_gen:real_sld_jtag_hub|jtag_ir_reg[2] ; 3       ;
 ; Total number of inverted registers = 3                                                                                                                                                                                                                                                                                          ;         ;
@@ -2093,35 +2094,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 305                         ;
-;     CLR               ; 19                          ;
+; arriav_ff             ; 338                         ;
+;     CLR               ; 51                          ;
 ;     ENA               ; 18                          ;
-;     ENA CLR           ; 76                          ;
+;     ENA CLR           ; 77                          ;
 ;     ENA CLR SLD       ; 23                          ;
 ;     ENA SCLR          ; 32                          ;
 ;     ENA SLD           ; 64                          ;
 ;     SCLR              ; 34                          ;
 ;     plain             ; 39                          ;
 ; arriav_io_obuf        ; 129                         ;
-; arriav_lcell_comb     ; 243                         ;
+; arriav_lcell_comb     ; 336                         ;
 ;     arith             ; 119                         ;
 ;         1 data inputs ; 119                         ;
 ;     extend            ; 3                           ;
 ;         7 data inputs ; 3                           ;
-;     normal            ; 121                         ;
+;     normal            ; 214                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 8                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 24                          ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 45                          ;
+;         4 data inputs ; 55                          ;
 ;         5 data inputs ; 35                          ;
-;         6 data inputs ; 31                          ;
+;         6 data inputs ; 30                          ;
 ; boundary_port         ; 666                         ;
 ; generic_pll           ; 2                           ;
 ; stratixv_ram_block    ; 64                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 1.50                        ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 1.86                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2130,7 +2131,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -2140,7 +2141,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Sat Jun 16 13:02:12 2018
+    Info: Processing started: Sat Jun 16 19:42:40 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISC-V -c TopDE
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -2151,8 +2152,8 @@ Info (12021): Found 0 design units, including 0 entities, in source file paramet
 Warning (10275): Verilog HDL Module Instantiation warning at CPU.v(142): ignored dangling comma in List of Port Connections File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/CPU.v Line: 142
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/cpu.v
     Info (12023): Found entity 1: CPU File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/CPU.v Line: 4
-Warning (10275): Verilog HDL Module Instantiation warning at Datapath_MULTI.v(136): ignored dangling comma in List of Port Connections File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 136
-Warning (10275): Verilog HDL Module Instantiation warning at Datapath_MULTI.v(165): ignored dangling comma in List of Port Connections File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 165
+Warning (10275): Verilog HDL Module Instantiation warning at Datapath_MULTI.v(138): ignored dangling comma in List of Port Connections File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 138
+Warning (10275): Verilog HDL Module Instantiation warning at Datapath_MULTI.v(167): ignored dangling comma in List of Port Connections File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 167
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/datapath_multi.v
     Info (12023): Found entity 1: Datapath_MULTI File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 11
 Info (12021): Found 1 design units, including 1 entities, in source file cpu/control_multi.v
@@ -2296,26 +2297,26 @@ Info (12021): Found 1 design units, including 1 entities, in source file vga/hex
     Info (12023): Found entity 1: HexFont File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/VGA/HexFont.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file vga/memoryvga.v
     Info (12023): Found entity 1: MemoryVGA File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/VGA/MemoryVGA.v Line: 39
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(85): created implicit net for "wOpCode" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 85
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(116): created implicit net for "wOpcode" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 116
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(117): created implicit net for "wFunct3" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 117
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(118): created implicit net for "wFunct7" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 118
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(119): created implicit net for "IRWrite" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 119
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(120): created implicit net for "MemtoReg" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 120
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(123): created implicit net for "IorD" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 123
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(127): created implicit net for "PCSource" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 127
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(129): created implicit net for "ALUSrcB" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 129
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(130): created implicit net for "ALUSrcA" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 130
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(133): created implicit net for "Store" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 133
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(134): created implicit net for "wLoadCase" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 134
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(135): created implicit net for "wWriteCase" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 135
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(142): created implicit net for "wRs1" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 142
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(143): created implicit net for "wRs2" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 143
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(144): created implicit net for "wWriteRegister" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 144
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(145): created implicit net for "wTreatedToRegister" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 145
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(184): created implicit net for "wTreatedToMemory" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 184
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(185): created implicit net for "wByteEnabler" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 185
-Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(201): created implicit net for "wLigaULA_PASSADA" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 201
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(86): created implicit net for "wOpCode" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 86
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(118): created implicit net for "wOpcode" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 118
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(119): created implicit net for "wFunct3" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 119
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(120): created implicit net for "wFunct7" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 120
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(121): created implicit net for "IRWrite" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 121
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(122): created implicit net for "MemtoReg" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 122
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(125): created implicit net for "IorD" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 125
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(129): created implicit net for "PCSource" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 129
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(131): created implicit net for "ALUSrcB" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 131
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(132): created implicit net for "ALUSrcA" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 132
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(135): created implicit net for "Store" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 135
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(136): created implicit net for "wLoadCase" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 136
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(137): created implicit net for "wWriteCase" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 137
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(144): created implicit net for "wRs1" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 144
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(145): created implicit net for "wRs2" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 145
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(146): created implicit net for "wWriteRegister" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 146
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(147): created implicit net for "wTreatedToRegister" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 147
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(186): created implicit net for "wTreatedToMemory" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 186
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(187): created implicit net for "wByteEnabler" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 187
+Warning (10236): Verilog HDL Implicit Net warning at Datapath_MULTI.v(203): created implicit net for "wLigaULA_PASSADA" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 203
 Info (12127): Elaborating entity "TopDE" for the top level hierarchy
 Warning (10034): Output port "DRAM_ADDR" at TopDE.v(74) has no driver File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 74
 Warning (10034): Output port "DRAM_BA" at TopDE.v(75) has no driver File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 75
@@ -2421,35 +2422,34 @@ Info (12128): Elaborating entity "CPU" for hierarchy "CPU:CPU0" File: C:/Users/B
 Warning (10858): Verilog HDL warning at CPU.v(97): object RegDst used but never assigned File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/CPU.v Line: 97
 Warning (10030): Net "RegDst" at CPU.v(97) has no driver or initial value, using a default initial value '0' File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/CPU.v Line: 97
 Info (12128): Elaborating entity "Datapath_MULTI" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/CPU.v Line: 142
-Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(85): object "wOpCode" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 85
-Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(45): object "MDR" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 45
 Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(48): object "wRS1" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 48
 Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(48): object "wRS2" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 48
 Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(48): object "wRD" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 48
 Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(53): object "wImmediateMux" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 53
-Warning (10858): Verilog HDL warning at Datapath_MULTI.v(54): object wMemorALU used but never assigned File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 54
-Warning (10858): Verilog HDL warning at Datapath_MULTI.v(55): object wJalAddress used but never assigned File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 55
 Warning (10036): Verilog HDL or VHDL warning at Datapath_MULTI.v(56): object "wControlULA" assigned a value but never read File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 56
-Warning (10230): Verilog HDL assignment warning at Datapath_MULTI.v(85): truncated value with size 7 to match size of target (1) File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 85
-Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(240): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 240
-Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(241): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 241
-Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(252): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 252
-Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(253): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 253
-Warning (10030): Net "wMemorALU" at Datapath_MULTI.v(54) has no driver or initial value, using a default initial value '0' File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 54
+Warning (10230): Verilog HDL assignment warning at Datapath_MULTI.v(86): truncated value with size 7 to match size of target (1) File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 86
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(217): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 217
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(218): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 218
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(219): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 219
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(220): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 220
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(221): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 221
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(235): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 235
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(254): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 254
+Warning (10199): Verilog HDL Case Statement warning at Datapath_MULTI.v(255): case item expression never matches the case expression File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 255
 Warning (10030): Net "wMemAddress[31..2]" at Datapath_MULTI.v(55) has no driver or initial value, using a default initial value '0' File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 55
 Warning (10034): Output port "oDebug" at Datapath_MULTI.v(18) has no driver File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 18
-Info (12128): Elaborating entity "Control_MULTI" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 136
-Info (12128): Elaborating entity "Registers" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 153
-Info (12128): Elaborating entity "ALU" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|ALU:ALU0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 165
-Info (12128): Elaborating entity "ALUControl" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|ALUControl:ALUcont0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 174
+Info (12128): Elaborating entity "Control_MULTI" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|Control_MULTI:CrlMULTI" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 138
+Info (12128): Elaborating entity "Registers" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|Registers:RegsMULTI" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 155
+Info (12128): Elaborating entity "ALU" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|ALU:ALU0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 167
+Info (12128): Elaborating entity "ALUControl" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|ALUControl:ALUcont0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 176
 Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(65): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/ALUControl.v Line: 65
 Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(67): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/ALUControl.v Line: 67
 Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(69): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/ALUControl.v Line: 69
 Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(71): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/ALUControl.v Line: 71
 Warning (10272): Verilog HDL Case Statement warning at ALUControl.v(73): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/ALUControl.v Line: 73
-Info (12128): Elaborating entity "MemStore" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|MemStore:MemStore0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 187
+Info (12128): Elaborating entity "MemStore" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|MemStore:MemStore0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 189
 Warning (10272): Verilog HDL Case Statement warning at MemStore.v(26): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Memoria/MemStore.v Line: 26
-Info (12128): Elaborating entity "MemLoad" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|MemLoad:MemLoad0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 207
+Info (12128): Elaborating entity "MemLoad" for hierarchy "CPU:CPU0|Datapath_MULTI:Processor|MemLoad:MemLoad0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 209
 Warning (10272): Verilog HDL Case Statement warning at MemLoad.v(24): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Memoria/MemLoad.v Line: 24
 Warning (10272): Verilog HDL Case Statement warning at MemLoad.v(25): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Memoria/MemLoad.v Line: 25
 Warning (10272): Verilog HDL Case Statement warning at MemLoad.v(26): case item expression covers a value already covered by a previous case item File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/Memoria/MemLoad.v Line: 26
@@ -2541,11 +2541,11 @@ Info (12128): Elaborating entity "Stopwatch_divider_clk" for hierarchy "STOPWATC
 Info (12128): Elaborating entity "LFSR_interface" for hierarchy "LFSR_interface:lfsr0" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 439
 Info (12128): Elaborating entity "LFSR_word" for hierarchy "LFSR_interface:lfsr0|LFSR_word:lfsr" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 18
 Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wOpcode" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 116
-    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wFunct3" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 117
-    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wFunct7" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 118
+    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wOpcode" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 118
+    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wFunct3" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 119
+    Warning (12110): Net "CPU:CPU0|Datapath_MULTI:Processor|wFunct7" is missing source, defaulting to GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 120
 Info (11170): Starting IP generation for the debug fabric: alt_sld_fab.
-Info (11172): 2018.06.16.13:02:47 Progress: Loading sld8245b184/alt_sld_fab_wrapper_hw.tcl
+Info (11172): 2018.06.16.19:43:23 Progress: Loading sld8245b184/alt_sld_fab_wrapper_hw.tcl
 Info (11172): Alt_sld_fab.alt_sld_fab: SLD fabric agents which did not specify prefer_host were connected to JTAG
 Info (11172): Alt_sld_fab: Generating alt_sld_fab "alt_sld_fab" for QUARTUS_SYNTH
 Info (11172): Alt_sld_fab: "alt_sld_fab" instantiated alt_sld_fab "alt_sld_fab"
@@ -2775,8 +2775,40 @@ Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
     Warning (13047): Converted the fan-out from the tri-state buffer "LFSR_interface:lfsr0|wReadData[29]" to the node "CPU:CPU0|Datapath_MULTI:Processor|IR[29]" into an OR gate File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 11
     Warning (13047): Converted the fan-out from the tri-state buffer "LFSR_interface:lfsr0|wReadData[30]" to the node "CPU:CPU0|Datapath_MULTI:Processor|IR[30]" into an OR gate File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 11
     Warning (13047): Converted the fan-out from the tri-state buffer "LFSR_interface:lfsr0|wReadData[31]" to the node "CPU:CPU0|Datapath_MULTI:Processor|IR[31]" into an OR gate File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 11
-Info (13000): Registers with preset signals will power-up high File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 277
+Info (13000): Registers with preset signals will power-up high File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[0]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[0]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[0]~1" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[2]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[2]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[2]~5" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[3]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[3]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[3]~9" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[4]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[4]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[4]~13" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[5]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[5]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[5]~17" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[6]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[6]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[6]~21" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[7]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[7]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[7]~25" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[8]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[8]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[8]~29" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[9]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[9]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[9]~33" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[10]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[10]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[10]~37" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[11]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[11]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[11]~41" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[12]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[12]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[12]~45" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[13]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[13]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[13]~49" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[14]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[14]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[14]~53" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[15]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[15]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[15]~57" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[16]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[16]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[16]~61" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[17]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[17]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[17]~65" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[18]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[18]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[18]~69" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[19]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[19]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[19]~73" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[20]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[20]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[20]~77" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[21]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[21]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[21]~81" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[22]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[22]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[22]~85" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[23]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[23]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[23]~89" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[24]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[24]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[24]~93" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[25]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[25]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[25]~97" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[26]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[26]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[26]~101" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[27]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[27]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[27]~105" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[28]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[28]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[28]~109" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[29]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[29]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[29]~113" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[30]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[30]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[30]~117" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
+    Warning (13310): Register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[31]" is converted into an equivalent circuit using register "CPU:CPU0|Datapath_MULTI:Processor|PCBack[31]~_emulated" and latch "CPU:CPU0|Datapath_MULTI:Processor|PCBack[31]~121" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/CPU/Datapath_MULTI.v Line: 292
 Warning (13008): TRI or OPNDRN buffers permanently disabled
     Warning (13010): Node "LFSR_interface:lfsr0|wReadData[0]~synth" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 11
     Warning (13010): Node "LFSR_interface:lfsr0|wReadData[1]~synth" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/lfsr/lfsr_interface.v Line: 11
@@ -2919,8 +2951,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "VGA_R[7]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 208
     Warning (13410): Pin "VGA_SYNC_N" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 209
     Warning (13410): Pin "VGA_VS" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 214
-    Warning (13410): Pin "PC[0]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 216
-    Warning (13410): Pin "PC[1]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 216
     Warning (13410): Pin "BR_Leitura1[0]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 218
     Warning (13410): Pin "BR_Leitura1[1]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 218
     Warning (13410): Pin "BR_Leitura1[2]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 218
@@ -2985,7 +3015,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "BR_Leitura2[29]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 219
     Warning (13410): Pin "BR_Leitura2[30]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 219
     Warning (13410): Pin "BR_Leitura2[31]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 219
-    Warning (13410): Pin "BR_Escrita[0]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
     Warning (13410): Pin "BR_Escrita[1]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
     Warning (13410): Pin "BR_Escrita[2]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
     Warning (13410): Pin "BR_Escrita[3]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
@@ -3017,8 +3046,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "BR_Escrita[29]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
     Warning (13410): Pin "BR_Escrita[30]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
     Warning (13410): Pin "BR_Escrita[31]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 220
-    Warning (13410): Pin "Saida_ULA[0]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 221
-    Warning (13410): Pin "Saida_ULA[1]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 221
     Warning (13410): Pin "RegDisp[0]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 223
     Warning (13410): Pin "RegDisp[1]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 223
     Warning (13410): Pin "RegDisp[13]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 223
@@ -3146,7 +3173,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "Debug[30]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 234
     Warning (13410): Pin "Debug[31]" is stuck at GND File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 234
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
-Info (17049): 117 registers lost all their fanouts during netlist optimizations.
+Info (17049): 116 registers lost all their fanouts during netlist optimizations.
 Warning (20013): Ignored 13 assignments for entity "VgaPll" -- entity does not exist in design
 Warning (20013): Ignored 317 assignments for entity "VgaPll_0002" -- entity does not exist in design
 Info (144001): Generated suppressed messages file C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/output_files/TopDE.map.smsg
@@ -3527,46 +3554,46 @@ Warning (15752): Ignored 72 Virtual Pin logic option assignments
     Warning (15728): Ignored Virtual Pin assignment on output enabled pin "MemD_DadoLeitura[29]"
     Warning (15728): Ignored Virtual Pin assignment on output enabled pin "MemD_DadoLeitura[30]"
     Warning (15728): Ignored Virtual Pin assignment on output enabled pin "MemD_DadoLeitura[31]"
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[7]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[11]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[2]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[30]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[31]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[14]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[3]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[24]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[0]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[0]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[21]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[4]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[2]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[22]".
     Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[10]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[5]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[15]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[8]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[13]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[6]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[22]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[4]".
     Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[1]".
     Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[19]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[5]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[23]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[29]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[18]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[16]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[27]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[25]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[15]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[7]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[28]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[4]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[3]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[8]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[6]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[17]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[13]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[1]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[12]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[0]".
     Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[9]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[26]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[6]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[3]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[12]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[16]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[7]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[18]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[30]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[7]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[24]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[0]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[2]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[11]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[23]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[4]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[17]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[31]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[27]".
+    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[1]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[25]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[21]".
     Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[20]".
-    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[6]".
-    Warning (15751): Ignored Virtual Pin assignment to "FlagsFPU[5]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[14]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[26]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[28]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[2]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[3]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[5]".
+    Warning (15751): Ignored Virtual Pin assignment to "RegDispFPU[29]".
 Warning (21074): Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "ADC_DOUT" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 43
     Warning (15610): No output dependent on input pin "AUD_ADCDAT" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 47
@@ -3589,18 +3616,18 @@ Warning (21074): Design contains 21 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "TD_DATA[7]" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 197
     Warning (15610): No output dependent on input pin "TD_HS" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 198
     Warning (15610): No output dependent on input pin "TD_VS" File: C:/Users/Breno Felipe/Documents/GitHub/oac1-2018/lab4/ATUAL_RISCV-v1.2/RISCV-v1.2/Core_restored/TopDE.v Line: 200
-Info (21057): Implemented 1254 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1349 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 35 input pins
     Info (21059): Implemented 145 output pins
     Info (21060): Implemented 97 bidirectional pins
-    Info (21061): Implemented 910 logic cells
+    Info (21061): Implemented 1005 logic cells
     Info (21064): Implemented 64 RAM segments
     Info (21065): Implemented 2 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 767 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 793 warnings
     Info: Peak virtual memory: 4945 megabytes
-    Info: Processing ended: Sat Jun 16 13:03:07 2018
-    Info: Elapsed time: 00:00:55
-    Info: Total CPU time (on all processors): 00:01:45
+    Info: Processing ended: Sat Jun 16 19:43:57 2018
+    Info: Elapsed time: 00:01:17
+    Info: Total CPU time (on all processors): 00:01:48
 
 
 +------------------------------------------+

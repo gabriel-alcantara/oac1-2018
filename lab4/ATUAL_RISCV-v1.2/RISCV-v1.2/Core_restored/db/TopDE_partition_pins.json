@@ -24,6 +24,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "PC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "PC[1]",
+					"strict" : false
+				},
+				{
 					"name" : "PC[2]",
 					"strict" : false
 				},
@@ -269,6 +277,18 @@
 				},
 				{
 					"name" : "Instrucao[31]",
+					"strict" : false
+				},
+				{
+					"name" : "BR_Escrita[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Saida_ULA[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Saida_ULA[1]",
 					"strict" : false
 				},
 				{

@@ -67,6 +67,7 @@ wire [9:0] wControlULA;
 initial
 begin
 	PC			<= BEGINNING_TEXT;
+	PCBack      <= BEGINNING_TEXT;
 	IR			<= 32'b0;
 	ALUOut	<= 32'b0;
 	MDR 		<= 32'b0;
@@ -89,6 +90,7 @@ assign wRD      = IR[11:7];
 assign wControlULA = {IR[31:25],IR[14:12]};
 assign wImmediate = IR[31:0];
 assign wImmediateMux = wImmediate[31:0];
+assign wMemorALU  = ALUOut;
 
 /* Output wires */
 assign oPC			= PC;
@@ -208,7 +210,18 @@ MemLoad MemLoad0 (
 
 
 
-
+/* Immediate Generator*/
+always @(*)
+begin
+	case(wOpCode)
+		7'b0000011: wImmediate <= {{20{oInstr[31]}},oInstr[31:20]}; // instruction type R
+		7'b0100011: wImmediate <= {{20{oInstr[31]}},oInstr[31:25],oInstr[11:7]}; // instruction type I
+		7'b1100011: wImmediate <= {{20{oInstr[31]}},oInstr[7],oInstr[30:25],oInstr[11:8],0}; // instruction type SB
+		7'b0110111: wImmediate <= {oInstr[31:12],000000000000} ; // instruction type U
+		7'b1101111: wImmediate <= {{12{oInstr[31]}},oInstr[30:21],oInstr[20],oInstr[19:12],0}; // instruction type UJ
+		default :   wImmediate <= 32'd0;
+	endcase
+end
 /* ****************************************************** */
 /* multiplexadores							  						 */
 
@@ -219,6 +232,7 @@ always @(*)
 	case (Store)
 		3'd0: wRegWriteData <= wMemorALU;
 		3'd1: wRegWriteData <= PC;
+		3'd2: wRegWriteData <= MDR;
 		default: wRegWriteData <= ZERO;
 	endcase
 
@@ -226,7 +240,7 @@ always @(*)
 // Mux ALU input 'A'
 always @(*)
 	case (ALUSrcA)
-		2'd0: wALUMuxA <= PC;
+		2'd0: wALUMuxA <= PCBack;
 		2'd1: wALUMuxA <= A;
 		default: wALUMuxA <= 32'd0;
 	endcase
@@ -246,11 +260,11 @@ always @(*)
 
 // Mux OrigPC
 always @(*)
-	case (PCSource)
+	case (PCSource) // PCSoruce eh o sinal de controle OrigPC
 		3'd0: wPCMux <= wALUResult;		
 		3'd1: wPCMux <= ALUOut;				 
-		3'd2: wPCMux <= wJalAddress;		
-		3'd3: wPCMux <= wALUResult & ~(32'h1);					
+		//3'd2: wPCMux <= wJalAddress;  era usado no MIPS nao tem no caminho de dados do RISCV		
+		//3'd3: wPCMux <= wALUResult & ~(32'h1);		nao entendi			
 		default: wPCMux <= 32'd0;
 	endcase
 
@@ -270,10 +284,12 @@ begin
 		MDR 		<= 32'b0;
 		A 			<= 32'b0;
 		B 			<= 32'b0;
+		PCBack     = PC;
 	end
 	else
 	begin
 		/* Unconditional */
+		PCBack  <= PC;
 		ALUOut	<= wALUResult;
 		A			<= wReadData1;
 		B			<= wReadData2;
