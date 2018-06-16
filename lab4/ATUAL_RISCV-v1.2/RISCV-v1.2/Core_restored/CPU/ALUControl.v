@@ -74,22 +74,18 @@ begin
         end
         2'b11:
             case (iFunct3)
-                OPCADDI:
+                FUNADDI:
                     oControlSignal  = OPADD;
-                OPCADDIU:
-                    oControlSignal  = OPADD;
-                OPCSLTI:
+                FUNSLTI:
                     oControlSignal  = OPSLT;
-                OPCSLTIU:
+                FUNSLTIU:
                     oControlSignal  = OPSLTU;
-                OPCANDI:
+                FUNANDI:
                     oControlSignal  = OPAND;
-                OPCORI:
+                FUNORI:
                     oControlSignal  = OPOR;
-                OPCXORI:
+                FUNXORI:
                     oControlSignal  = OPXOR;
-                OPCLUI:
-                    oControlSignal  = OPLUI;
                 default:
                     oControlSignal  = 5'b00000;
             endcase

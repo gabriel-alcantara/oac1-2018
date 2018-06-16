@@ -14,7 +14,7 @@ parameter
 	 OPADD 		= 5'b00011,
 	 OPSUB 		= 5'b00100,
 	 OPSLT 		= 5'b00101,
-	 OPSLTU 		= 5'b00110,
+	 OPSLTU 	= 5'b00110,
 	 OPGE 		= 5'b00111,
 	 OPGEU 		= 5'b01000,
 	 OPSLL 		= 5'b01001,
@@ -22,13 +22,13 @@ parameter
 	 OPSRA 		= 5'b01011,
 	 OPLUI 		= 5'b01100,
 	 OPMUL 		= 5'b01101,
-	 OPMULH 		= 5'b01110,
+	 OPMULH 	= 5'b01110,
 	 OPMULHU 	= 5'b01111,
 	 OPMULHSU   = 5'b10000,
 	 OPDIV 		= 5'b10001,
-	 OPDIVU 		= 5'b10010,
+	 OPDIVU 	= 5'b10010,
 	 OPREM 		= 5'b10011,
-	 OPREMU 		= 5'b10100,
+	 OPREMU 	= 5'b10100,
 
 /* Campo FUNCT */
 	FUNSLL = 10'b0000000001,
@@ -51,7 +51,13 @@ parameter
     FUNSLL = 10'b0000000001,
     FUNSRA = 10'b0100000101,
     	
-	
+/*Campo FUNCT3*/      // para uso ALUcontrol funcoes que so tem funct3
+   FUNADDI = 3'b000,
+   FUNSLTI= 3'b010,
+   FUNSLTIU=3'b011,
+   FUNANDI= 3'b111,
+   FUNORI = 3'b110,
+   FUNXORI= 3'b100,
 	
 	
 	
