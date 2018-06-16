@@ -31,33 +31,35 @@ parameter
 	 OPREMU 		= 5'b10100,
 
 /* Campo FUNCT */
-	// concatenacao de funct3 com funt7
-	FUNSLL  	= 10'b0010000000,
-	// obs: no riscV nao eh o srl com imediato,mas aqui vai ser p nao confundir
-	FUNSRL  	= 10'b1010000000, // srli
-	FUNSRA  	= 10'b1010100000,
-	FUNMULT 	= 10'b0000000001,
-	FUNDIV  	= 10'b1000000001,
-	// obs: mulhu no riscV
-	FUNMULTU = 10'b0110000001,
-	FUNADD   = 10'b0000000000,
-	FUNSUB   = 10'b0000100000,
-	FUNOR    = 10'b1100000000,
-	FUNXOR   = 10'b1000000000,
-	FUNSLT   = 10'b0100000000,
-	FUNSLTU  = 10'b0110000000,
-	FUNDIVU  = 10'b1010000001,
-	FUNAND   = 10'b1110000000,
-	
+	FUNSLL = 10'b0000000001,
+    FUNSRL = 10'b0000000101,
+    FUNSRA = 10'b0100000101,
+    FUNMUL = 10'b0000001000,
+    FUNMULH= 10'b0000001001,
+    FUNMULHU=10'b0000001011,
+    FUNMULHSU=10'b0000001010,
+    FUNDIV = 10'b0000001100,
+    FUNDIVU= 10'b0000001101,
+    FUNADD = 10'b0000000000,
+    FUNSUB = 10'b0100000000,
+    FUNAND = 10'b0000001111,
+    FUNOR  = 10'b0000000110,
+    FUNXOR = 10'b0000000100,
+    FUNSLT = 10'b0000000100,
+    FUNSLTU= 10'b0000000101,
+    FUNSLR = 10'b0000000101,
+    FUNSLL = 10'b0000000001,
+    FUNSRA = 10'b0100000101,
+    	
 	
 	
 	
 	
 
 /* Campo OPCODE */
-	OPMULT   = 7'b0110011,
+	OPMUL   = 7'b0110011,
 	// obs: mulhu no riscV
-	OPMULTU  = 7'b0110011,
+	OPMULHU  = 7'b0110011,
 	// obs: no riscV eh a funcao srl
 	OPSRLV   = 7'b0110011,
 	// obs: eh a funcao sll
