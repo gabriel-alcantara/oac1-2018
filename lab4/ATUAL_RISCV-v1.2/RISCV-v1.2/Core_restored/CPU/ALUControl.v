@@ -42,10 +42,10 @@ begin
                     oControlSignal  = OPSRA;
                 FUNMUL:
                     oControlSignal  = OPMUL;
-					 FUNMULH:
-							oControlSignal = OPMULH;
-					 FUNMULHSU:
-					      oControlSignal = OPMULHSU;
+				FUNMULH:
+					oControlSignal = OPMULH;
+				FUNMULHSU:
+					oControlSignal = OPMULHSU;
                 FUNDIV:
                     oControlSignal  = OPDIV;
                 FUNMULHU:
@@ -78,17 +78,17 @@ begin
         end
         2'b11:
             case (iFunct3)
-                FUNADDI:
+                FUN3ADDI:
                     oControlSignal  = OPADD;
-                FUNSLTI:
+                FUN3SLTI:
                     oControlSignal  = OPSLT;
-                FUNSLTIU:
+                FUN3SLTIU:
                     oControlSignal  = OPSLTU;
-                FUNANDI:
+                FUN3ANDI:
                     oControlSignal  = OPAND;
-                FUNORI:
+                FUN3ORI:
                     oControlSignal  = OPOR;
-                FUNXORI:
+                FUN3XORI:
                     oControlSignal  = OPXOR;
                 default:
                     oControlSignal  = 5'b00000;
